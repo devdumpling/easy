@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function Banner() {
   return (
     <div
-      className="border-b bg-accent-0 border-accent-1 shadow-small py-4"
+      className="border-b bg-accent-0 border-accent-1 shadow-small py-3"
     >
       <Container>
         <section className="flex-col sm:flex-row flex items-center sm:justify-between">
