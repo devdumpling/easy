@@ -25,8 +25,12 @@ module.exports = {
         '8xl': '6.25rem',
       },
       boxShadow: {
-        small: '0 5px 10px rgba(0, 0, 0, 0.12)',
+        small: '0 5px 10px rgba(0, 0, 0, 0.05)',
         medium: '0 8px 30px rgba(0, 0, 0, 0.12)',
+      },
+      fontFamily: {
+        'easy': ['Noto\ Serif'],
+        'roboto': ['Roboto', '-apple-system', 'Arial'],
       },
     },
   },
