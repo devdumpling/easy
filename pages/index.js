@@ -5,9 +5,7 @@ import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 
-export default function Index({ allPosts }) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+export default function Index({ allPosts }) {    
   return (
     <>
       <Layout>
@@ -31,6 +29,7 @@ export async function getStaticProps() {
     'author',
     'coverImage',
     'excerpt',
+    'subtitle',
   ])
 
   return {

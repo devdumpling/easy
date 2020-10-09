@@ -1,4 +1,4 @@
-import PostPreview from './post-preview'
+import ArchivePreview from './archive-preview'
 
 export default function YourStories({ posts }) {
   return (
@@ -6,17 +6,21 @@ export default function YourStories({ posts }) {
       <h2 className="mt-16 mb-8 text-5xl font-bold font-roboto leading-tight">
         Your stories
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32">
+      <div className="grid grid-cols-1 md:col-gap-16 lg:col-gap-32 row-gap-10 md:row-gap-4 mb-8">
         {posts.map((post) => (
-          <PostPreview
-            key={post.slug}
-            title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-            author={post.author}
-            slug={post.slug}
-            excerpt={post.excerpt}
-          />
+          <>
+            <ArchivePreview
+              key={post.slug}              
+              title={post.title}
+              date={post.date}
+              slug={post.slug}
+              excerpt={post.excerpt}
+              subtitle={post.subtitle}
+              readTime={post.readTime}              
+              publication={post.publication}
+            />
+            <hr className="border-accent-2"/>
+          </>
         ))}
       </div>
     </section>

@@ -1,31 +1,29 @@
-import Avatar from './avatar'
 import DateFormatter from './date-formatter'
-import CoverImage from './cover-image'
 import Link from 'next/link'
 
 export default function ArchivePreview({
   title,
-  coverImage,
   date,
-  excerpt,
-  author,
+  subtitle,
+  readTime,
+  publication,
   slug,
 }) {
   return (
     <div>
-      <div className="mb-5">
-        <CoverImage slug={slug} title={title} src={coverImage} />
-      </div>
-      <h3 className="text-3xl mb-3 leading-snug">
+      <h3 className="text-xl font-bold mb-2 leading-snug">
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a className="hover:underline">{title}</a>
         </Link>
       </h3>
-      <div className="text-lg mb-4">
-        <DateFormatter dateString={date} />
+      <p className="text-md text-gray-600 font-medium leading-relaxed pr-2 mb-2">{subtitle}</p>
+      <div className="flex justify-start font-normal text-sm text-gray-600 mb-2">
+        <div className="pr-2">
+          Published on <DateFormatter dateString={date} />
+        </div> {' · '}
+        <p className="px-2"> {readTime} min read</p>
+        {publication && (<p className="pr-2"> {' · '}In {publication}</p>)}
       </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
     </div>
   )
 }
