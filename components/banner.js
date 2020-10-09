@@ -15,15 +15,13 @@ export default function Banner() {
             </Link>
           </h2>
           <div className="text-right text-sm">
-            <>
-              Source{' '}
+            <>              
               <a
                 href={`${REPO_PATH}`}
-                className="underline hover:text-success duration-200 transition-colors"
+                className="hover:text-success hover:underline duration-200 transition-colors"
               >
-                available on GitHub
+                Source
               </a>
-              .
           </>
           </div>
         </section>
