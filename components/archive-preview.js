@@ -24,6 +24,7 @@ export default function ArchivePreview({
         <p className="px-2"> {readTime} min read</p>
         {publication && (<p className="pr-2"> {' · '}In {publication}</p>)}
       </div>
+      <hr className="border-accent-2"/>
     </div>
   )
 }
