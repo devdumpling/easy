@@ -3,7 +3,7 @@ import LayoutBanner from '../../components/layout-banner'
 import { getAllDrafts } from '../../lib/api'
 import Head from 'next/head'
 import Link from 'next/link'
-import YourStories from '../../components/your-stories'
+import YourDrafts from '../../components/your-drafts'
 
 export default function Drafts({ allDrafts }) {
     const yourDrafts = allDrafts;
@@ -23,7 +23,7 @@ export default function Drafts({ allDrafts }) {
                         <Link href="./stories"><a className="pr-4 text-gray-600 hover:text-gray-900">Published</a></Link>
                     </div>
                     <hr className="border-accent-2 mb-4" />
-                    {yourDrafts.length > 0 && <YourStories posts={yourDrafts} />}
+                    {yourDrafts.length > 0 && <YourDrafts drafts={yourDrafts} />}
                 </Container>
             </LayoutBanner>
         </>
