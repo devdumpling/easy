@@ -1,15 +1,13 @@
-import { useCallback, useState, useEffect } from 'react'
-import YourDrafts from './your-drafts'
+import { useCallback, useState } from 'react'
 
-export default function Search({ posts }) {
-    const [query, setQuery] = useState('');
-    const [results, setResults] = useState([]);
+export default function Search({ posts, setResults }) {
+    const [query, setQuery] = useState('');    
 
     const onChange = useCallback((event) => {
         const query = event.target.value;
         setQuery(query);
         if (query.length) {            
-            setResults(posts.filter(post => post.title.toLowerCase().includes(query)));                                           
+            setResults(posts.filter(post => post.title.toLowerCase().includes(query.toLowerCase())));                                           
         } else {
             setResults([]);            
         }
@@ -17,11 +15,10 @@ export default function Search({ posts }) {
 
     return (
         <>
-            <div className="flex flex-row text-gray-600 mb-4">
-                <input onChange={onChange} className="bg-white text-left text-sm focus:outline-none"
+            <div className="flex flex-row text-gray-600">
+                <input onChange={onChange} className="bg-white text-right text-sm focus:outline-none"
                     type="text" value={query} name="search" placeholder="Search" />                
-            </div>
-            {results.length > 0 && <YourDrafts drafts={results} />}
+            </div>            
         </>
     )
 }

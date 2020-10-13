@@ -14,6 +14,7 @@ export default function Archive({ allPosts, allDrafts }) {
     const allEntries = allPosts.concat(allDrafts);
     const [showDrafts, setShowDrafts] = useState(true);
     const [searchActive, setSearchActive] = useState(false);
+    const [searchResults, setSearchResults] = useState([]);
 
     function toggleDrafts() { setShowDrafts(!showDrafts) };
 
@@ -46,10 +47,13 @@ export default function Archive({ allPosts, allDrafts }) {
                                 'text-gray-900': !showDrafts,
                             })}>Published {yourPosts.length}</p>
                         </div>
+                        <div onFocus={onSearchFocus} onBlur={onSearchBlur}>
+                            <Search setResults={setSearchResults} posts={allEntries} />
+                        </div>
                     </div>
                     <hr className="border-accent-2 mb-4" />
-                    <div onFocus={onSearchFocus} onBlur={onSearchBlur}>
-                        <Search posts={allEntries} />
+                    <div>
+                        {searchResults.length > 0 && <YourDrafts drafts={searchResults} />}
                     </div>
                     <div className={cn({
                         'hidden': showDrafts,
