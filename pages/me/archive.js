@@ -37,16 +37,22 @@ export default function Archive({ allPosts, allDrafts }) {
                         Your stories
                     </h2>
                     <div className="flex justify-between mb-2">
-                        <div className="flex flex-row justify-start">
-                            <p onClick={toggleDrafts} className={cn("pr-4 cursor-pointer", {
-                                'text-gray-900': showDrafts,
-                                'text-gray-600 hover:text-gray-900': !showDrafts,
-                            })}>Drafts {yourDrafts.length}</p>
-                            <p onClick={toggleDrafts} className={cn("pr-4 cursor-pointer", {
-                                'text-gray-600 hover:text-gray-900': showDrafts,
-                                'text-gray-900': !showDrafts,
-                            })}>Published {yourPosts.length}</p>
-                        </div>
+                        {(searchActive || searchResults.length > 0) ?
+                            <div className="text-gray-900">
+                                <p>Search Results {searchResults.length}</p>
+                            </div> 
+                            :
+                            <div className="flex flex-row justify-start">
+                                <p onClick={toggleDrafts} className={cn("pr-4 cursor-pointer", {
+                                    'text-gray-900': showDrafts,
+                                    'text-gray-600 hover:text-gray-900': !showDrafts,
+                                })}>Drafts {yourDrafts.length}</p>
+                                <p onClick={toggleDrafts} className={cn("pr-4 cursor-pointer", {
+                                    'text-gray-600 hover:text-gray-900': showDrafts,
+                                    'text-gray-900': !showDrafts,
+                                })}>Published {yourPosts.length}</p>
+                            </div>
+                        }
                         <div onFocus={onSearchFocus} onBlur={onSearchBlur}>
                             <Search setResults={setSearchResults} posts={allEntries} />
                         </div>
@@ -59,13 +65,13 @@ export default function Archive({ allPosts, allDrafts }) {
                         'hidden': showDrafts,
                         'flex': !showDrafts,
                     })}>
-                        {!searchActive && yourPosts.length > 0 && <YourStories posts={yourPosts} />}
+                        {!searchActive && !searchResults.length > 0 && yourPosts.length > 0 && <YourStories posts={yourPosts} />}
                     </div>
                     <div className={cn({
                         'flex': showDrafts,
                         'hidden': !showDrafts,
                     })}>
-                        {!searchActive && yourDrafts.length > 0 && <YourDrafts drafts={yourDrafts} />}
+                        {!searchActive && !searchResults.length > 0 && yourDrafts.length > 0 && <YourDrafts drafts={yourDrafts} />}
                     </div>
                 </Container>
             </LayoutBanner>
