@@ -4,6 +4,7 @@ excerpt: 'What happened when I stopped writing for 30 days.'
 subtitle: 'What happened when I stopped writing for 30 days.'
 readTime: '7'
 publication:
+draft: '1'
 coverImage: 'https://cdn-images-1.medium.com/max/14720/1*i3SkPL_eqTJbcGNFCr0VrQ.jpeg'
 date: '2020-03-16T05:35:07.322Z'
 author:

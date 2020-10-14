@@ -4,6 +4,7 @@ excerpt: 'Communication is key'
 subtitle: 'Communication is key'
 readTime: '5'
 publication:
+draft: '1'
 coverImage: 'https://cdn-images-1.medium.com/max/11520/1*lSIQ0TpZEXMh3y2Q8CPpvw.jpeg'
 date: '2020-03-16T05:35:07.322Z'
 author:

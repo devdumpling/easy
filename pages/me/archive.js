@@ -3,7 +3,6 @@ import LayoutBanner from '../../components/layout-banner'
 import { getAllPosts, getAllDrafts } from '../../lib/api'
 import Head from 'next/head'
 import YourStories from '../../components/your-stories'
-import YourDrafts from '../../components/your-drafts'
 import Search from '../../components/search'
 import { useState, useCallback } from 'react'
 import cn from 'classnames'
@@ -59,7 +58,7 @@ export default function Archive({ allPosts, allDrafts }) {
                     </div>
                     <hr className="border-accent-2 mb-4" />
                     <div>
-                        {searchResults.length > 0 && <YourDrafts drafts={searchResults} />}
+                        {searchResults.length > 0 && <YourStories posts={searchResults} />}
                     </div>
                     <div className={cn({
                         'hidden': showDrafts,
@@ -71,7 +70,7 @@ export default function Archive({ allPosts, allDrafts }) {
                         'flex': showDrafts,
                         'hidden': !showDrafts,
                     })}>
-                        {!searchActive && !searchResults.length > 0 && yourDrafts.length > 0 && <YourDrafts drafts={yourDrafts} />}
+                        {!searchActive && !searchResults.length > 0 && yourDrafts.length > 0 && <YourStories posts={yourDrafts} />}
                     </div>
                 </Container>
             </LayoutBanner>
@@ -101,6 +100,7 @@ export async function getStaticProps() {
         'excerpt',
         'subtitle',
         'readTime',
+        'draft',
     ])
 
 

@@ -4,6 +4,7 @@ excerpt: 'Let''s break down the good, bad, and ugly'
 subtitle: 'Let''s break down the good, bad, and ugly'
 readTime: '1'
 publication:
+draft: '1'
 coverImage: 
 date: '2020-03-16T05:35:07.322Z'
 author:

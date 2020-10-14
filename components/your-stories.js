@@ -13,6 +13,7 @@ export default function YourStories({ posts }) {
             excerpt={post.excerpt}
             subtitle={post.subtitle}
             readTime={post.readTime}
+            draft={post.draft}
             publication={post.publication}
           />
         ))}
