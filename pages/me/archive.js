@@ -4,6 +4,7 @@ import { getAllPosts, getAllDrafts } from '../../lib/api'
 import Head from 'next/head'
 import YourStories from '../../components/your-stories'
 import Search from '../../components/search'
+import Filter from '../../components/filter'
 import { useState, useCallback } from 'react'
 import cn from 'classnames'
 
@@ -35,13 +36,13 @@ export default function Archive({ allPosts, allDrafts }) {
                     <h2 className="mt-16 mb-12 text-5xl font-bold font-roboto leading-tight">
                         Your stories
                     </h2>
-                    <div className="flex justify-between mb-2">
+                    <div className="flex items-baseline justify-between mb-2">
                         {(searchActive || searchResults.length > 0) ?
-                            <div className="text-gray-900">
+                            <div className="py-1 text-sm text-gray-900">
                                 <p>Search Results {searchResults.length}</p>
                             </div> 
                             :
-                            <div className="flex flex-row justify-start">
+                            <div className="flex items-baseline flex-row justify-start">
                                 <p onClick={toggleDrafts} className={cn("pr-4 cursor-pointer", {
                                     'text-gray-900': showDrafts,
                                     'text-gray-600 hover:text-gray-900': !showDrafts,
@@ -50,8 +51,9 @@ export default function Archive({ allPosts, allDrafts }) {
                                     'text-gray-600 hover:text-gray-900': showDrafts,
                                     'text-gray-900': !showDrafts,
                                 })}>Published {yourPosts.length}</p>
+                                <Filter />
                             </div>
-                        }
+                        }                        
                         <div onFocus={onSearchFocus} onBlur={onSearchBlur}>
                             <Search setResults={setSearchResults} posts={allEntries} />
                         </div>
