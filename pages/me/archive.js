@@ -31,7 +31,7 @@ export default function Archive({ allPosts, allDrafts }) {
             <LayoutBanner>
                 <Container>
                     <Head>
-                        <title>Stories</title>
+                        <title>Stories Archive</title>
                     </Head>
                     <h2 className="mt-16 mb-12 text-5xl font-bold font-roboto leading-tight">
                         Your stories
