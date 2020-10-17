@@ -16,7 +16,7 @@ export default function Search({ posts, setResults }) {
     return (
         <>
             <div className="flex flex-row text-gray-600">
-                <input autocomplete="off" onChange={onChange} className="bg-white text-right text-sm focus:outline-none"
+                <input autoComplete="off" onChange={onChange} className="bg-white text-right text-sm focus:outline-none"
                     type="text" value={query} name="search" placeholder="Search" />                
             </div>            
         </>

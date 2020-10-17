@@ -1,12 +1,15 @@
 import ArchivePreview from './archive-preview'
 import Filter from './filter'
+import { useState } from 'react'
 
 export default function YourStories({ posts }) {
+  const [filteredPosts, setFilteredPosts] = useState(posts);
+
   return (
     <section className="w-full">
-      <Filter />
+      <Filter entries={posts} filterEntries={setFilteredPosts} />
       <div className="grid grid-cols-1 md:col-gap-16 lg:col-gap-32 row-gap-10 md:row-gap-4 mb-8">
-        {posts.map((post) => (
+        {filteredPosts.map((post) => (
           <ArchivePreview
             key={post.slug}
             title={post.title}
