@@ -3,19 +3,21 @@ import cn from 'classnames'
 
 export default function Filter({ entries, filterEntries }) {
     const [active, setActive] = useState(false);
-
     const [startDate, setStartDate] = useState()
     const [endDate, setEndDate] = useState()
     const [length, setLength] = useState()
-    const [publication, setPublication] = useState()    
-    
+    const [publication, setPublication] = useState()
+    const publications = entries.map((post) => post.publication);
+
+    console.log(publications);
+
     useEffect(() => {
         filterChanges();
     }, [length, publication])
 
     const filterChanges = () => {
-        let filtered = entries;        
-        if (length) {            
+        let filtered = entries;
+        if (length) {
             if (length !== "Any") {
                 if (length === "8+ min") filtered = filtered.filter(post => post.readTime > 8)
                 else {
@@ -27,26 +29,24 @@ export default function Filter({ entries, filterEntries }) {
             }
         }
 
-        if (publication) {
-            if (publication === "SUPERJUMP") filtered = filtered.filter(post => post.publication == "SUPERJUMP")
+        if (publication && publication !== "Any") {            
+            filtered = filtered.filter(post => post.publication == publication)
         }
 
-        console.log(publication);
-        
         filterEntries(filtered);
     }
 
     const onLengthChange = (e) => {
-        setLength(e.target.value)        
+        setLength(e.target.value)
     }
 
     const onPublicationChange = (e) => {
-        setPublication(e.target.value)        
+        setPublication(e.target.value)
     }
 
     const clearFilters = (e) => {
         setLength();
-        setPublication();
+        setPublication();        
     }
 
     return (
@@ -106,9 +106,9 @@ export default function Filter({ entries, filterEntries }) {
                                 <div className="relative">
                                     <select onChange={onPublicationChange} className="block appearance-none text-sm w-full text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-publication">
                                         <option>Any</option>
-                                        <option>New Mexico</option>
-                                        <option>Missouri</option>
-                                        <option>SUPERJUMP</option>
+                                        {publications.map((pub) => (
+                                            pub && <option key={pub}>{pub}</option>
+                                        ))}
                                     </select>
                                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
