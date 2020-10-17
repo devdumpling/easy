@@ -2,21 +2,36 @@ import { useState } from 'react'
 import cn from 'classnames'
 
 export default function Filter() {
-    const [active, setActive] = useState(false);    
+    const [active, setActive] = useState(false);
+    const [filters, setFilters] = useState([]);
+
+    const [startDate, setStartDate] = useState()
+    const [endDate, setEndDate] = useState()
+
 
     return (
-        <div>
+        <div className={cn("flex justify-end", { "mb-4": active, "mb-0": !active })}>
+            <div className={cn("border-l-2 pl-2 text-gray-600", {
+                "opacity-100 border-green-600 transition ease-out duration-150": active,
+                "opacity-0 border-gray-100 transition ease-in duration-300 transform translate-x-16": !active,
+            })}>
+                <input autocomplete="off" className="text-left text-sm focus:outline-none"
+                    type="text" value={startDate} name="search" placeholder="Start Date" />
+                <input autocomplete="off" className="text-left text-sm focus:outline-none"
+                    type="text" value={endDate} name="search" placeholder="End Date" />
+            </div>
             <div className="relative inline-block text-left">
                 <div>
-                    <span classNameName="rounded-md shadow-sm">
-                        <button onClick={() => setActive(!active)} onBlur={() => setActive(false)} type="button" className="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-1 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-green-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" id="options-menu" aria-haspopup="true" aria-expanded="true">
+                    <span className="rounded-md shadow-sm">
+                        <button onClick={() => setActive(!active)} /* onBlur={() => setActive(false)}  */ type="button" className="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-1 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-green-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" id="options-menu" aria-haspopup="true" aria-expanded="true">
                             Filter
                             <svg className="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                             </svg>
                         </button>
                     </span>
                 </div>
+
 
                 <div className={cn("origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg", {
                     "transition ease-in-out duration-150 opacity-100": active,
@@ -24,22 +39,42 @@ export default function Filter() {
                 })}>
                     <div className="rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                         <div className="py-1">
-                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">Date</a>
-                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">Length</a>
+                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
+                                Length
+                            </a>
+                        </div>
+                        <div className="border-t border-gray-100"></div>
+                        <div className="flex justify-between py-1">
+                            <div class="relative">
+                                <select className="block appearance-none text-sm w-full text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-publication">
+                                    <option>Publication</option>
+                                    <option>All</option>
+                                    <option>New Mexico</option>
+                                    <option>Missouri</option>
+                                    <option>Texas</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                                </div>
+                            </div>                            
                         </div>
                         <div className="border-t border-gray-100"></div>
                         <div className="py-1">
-                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">Publication</a>
-                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">Partnered</a>
+                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
+                                Partnered
+                            </a>
+                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
+                                Comment
+                            </a>
+                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
+                                Submitted
+                            </a>
                         </div>
                         <div className="border-t border-gray-100"></div>
                         <div className="py-1">
-                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">Comment</a>
-                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">Submitted</a>
-                        </div>
-                        <div className="border-t border-gray-100"></div>
-                        <div className="py-1">
-                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">Clear Filters</a>
+                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
+                                Clear Filters
+                            </a>
                         </div>
                     </div>
                 </div>

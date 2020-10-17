@@ -4,7 +4,6 @@ import { getAllPosts, getAllDrafts } from '../../lib/api'
 import Head from 'next/head'
 import YourStories from '../../components/your-stories'
 import Search from '../../components/search'
-import Filter from '../../components/filter'
 import { useState, useCallback } from 'react'
 import cn from 'classnames'
 
@@ -50,8 +49,7 @@ export default function Archive({ allPosts, allDrafts }) {
                                 <p onClick={toggleDrafts} className={cn("pr-4 cursor-pointer", {
                                     'text-gray-600 hover:text-gray-900': showDrafts,
                                     'text-gray-900': !showDrafts,
-                                })}>Published {yourPosts.length}</p>
-                                <Filter />
+                                })}>Published {yourPosts.length}</p>                                
                             </div>
                         }                        
                         <div onFocus={onSearchFocus} onBlur={onSearchBlur}>
