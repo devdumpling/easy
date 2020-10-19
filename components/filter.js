@@ -7,9 +7,8 @@ export default function Filter({ entries, filterEntries }) {
     const [endDate, setEndDate] = useState()
     const [length, setLength] = useState()
     const [publication, setPublication] = useState()
-    const publications = entries.map((post) => post.publication);
-
-    console.log(publications);
+    const [lengthOptions, setLengthOptions] = useState(['Any', '0-2 min', '2-5 min', '5-8 min', '8+ min'])
+    const [publicationOptions, setPublicationOptions] = useState(['Any'].concat(entries.map((post) => post.publication)))
 
     useEffect(() => {
         filterChanges();
@@ -45,8 +44,8 @@ export default function Filter({ entries, filterEntries }) {
     }
 
     const clearFilters = (e) => {
-        setLength();
-        setPublication();        
+        setLength('Any');
+        setPublication('Any');        
     }
 
     return (
@@ -84,12 +83,10 @@ export default function Filter({ entries, filterEntries }) {
                             </label>
                             <div className="flex justify-between py-1">
                                 <div className="relative">
-                                    <select onChange={onLengthChange} className="block appearance-none text-sm w-full text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-publication">
-                                        <option>Any</option>
-                                        <option>0-2 min</option>
-                                        <option>2-5 min</option>
-                                        <option>5-8 min</option>
-                                        <option>8+ min</option>
+                                    <select onChange={onLengthChange} value={length} className="block appearance-none text-sm w-full text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-publication">
+                                        {lengthOptions.map((opt) => (
+                                            opt && <option key={opt}>{opt}</option>
+                                        ))}
                                     </select>
                                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
@@ -104,9 +101,8 @@ export default function Filter({ entries, filterEntries }) {
                              </label>
                             <div className="flex justify-end py-1">
                                 <div className="relative">
-                                    <select onChange={onPublicationChange} className="block appearance-none text-sm w-full text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-publication">
-                                        <option>Any</option>
-                                        {publications.map((pub) => (
+                                    <select onChange={onPublicationChange} value={publication} className="block appearance-none text-sm w-full text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-publication">                                        
+                                        {publicationOptions.map((pub) => (
                                             pub && <option key={pub}>{pub}</option>
                                         ))}
                                     </select>
