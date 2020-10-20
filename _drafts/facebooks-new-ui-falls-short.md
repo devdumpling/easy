@@ -3,15 +3,11 @@ title: 'Facebook''s New UI Falls Short'
 excerpt: 'Let''s break down the good, bad, and ugly'
 subtitle: 'Let''s break down the good, bad, and ugly'
 readTime: '1'
-publication:
+publication: ''
+partnered: ''
 draft: '1'
-coverImage: 
 date: '2020-03-16T05:35:07.322Z'
-author:
-  name: Devon Wells
-  picture:
-ogImage:
-  url:
+slugMedium: ''
 ---
 
 ## Facebook’s New UI Falls Short

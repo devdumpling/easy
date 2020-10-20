@@ -83,25 +83,23 @@ export async function getStaticProps() {
     const allPosts = getAllPosts([
         'title',
         'date',
-        'slug',
-        'author',
-        'coverImage',
+        'slug',        
         'excerpt',
         'subtitle',
         'readTime',
-        'publication',
+        'publication', 
+        'partnered',       
     ])
 
     const allDrafts = getAllDrafts([
         'title',
         'date',
-        'slug',
-        'author',
-        'coverImage',
+        'slug',        
         'excerpt',
         'subtitle',
-        'readTime',
+        'readTime',        
         'draft',
+        'submitted',
     ])
 
 

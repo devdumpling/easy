@@ -27,8 +27,7 @@ export default function Draft({ draft, morePosts, preview }) {
               <Head>
                 <title>
                   {draft.title} | Easy
-                </title>
-                <meta property="og:image" content={draft.ogImage.url} />
+                </title>                
               </Head>
               <PostHeader
                 title={draft.title}
@@ -49,11 +48,8 @@ export async function getStaticProps({ params }) {
   const draft = getPostBySlug(params.slug, [
     'title',
     'date',
-    'slug',
-    'author',
-    'content',
-    'ogImage',
-    'coverImage',
+    'slug',    
+    'content',        
   ], true)
   const content = await markdownToHtml(draft.content || '')
 

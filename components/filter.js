@@ -9,10 +9,12 @@ export default function Filter({ entries, filterEntries }) {
     const [publication, setPublication] = useState()
     const [lengthOptions, setLengthOptions] = useState(['Any', '0-2 min', '2-5 min', '5-8 min', '8+ min'])
     const [publicationOptions, setPublicationOptions] = useState(['Any'].concat(entries.map((post) => post.publication)))
+    const [partnerOnly, setPartnerOnly] = useState(false)
+    const [submittedOnly, setSubmittedOnly] = useState(false)
 
     useEffect(() => {
         filterChanges();
-    }, [length, publication])
+    }, [length, publication, partnerOnly, submittedOnly])
 
     const filterChanges = () => {
         let filtered = entries;
@@ -32,6 +34,14 @@ export default function Filter({ entries, filterEntries }) {
             filtered = filtered.filter(post => post.publication == publication)
         }
 
+        if (partnerOnly) {
+            filtered = filtered.filter(post => post.partnered === "1")            
+        }
+
+        if (submittedOnly) {
+            filtered = filtered.filter(post => post.submitted === "1")
+        }
+
         filterEntries(filtered);
     }
 
@@ -43,10 +53,18 @@ export default function Filter({ entries, filterEntries }) {
         setPublication(e.target.value)
     }
 
+    const handlePartnered = (e) => {
+        setPartnerOnly(!partnerOnly)
+    }
+
+    const handleSubmitted = (e) => {
+        setSubmittedOnly(!submittedOnly)
+    }
+
     const clearFilters = (e) => {
         setLength('Any');
         setPublication('Any');        
-    }
+    }    
 
     return (
         <div className={cn("flex justify-end", { "mb-4": active, "mb-0": !active })}>
@@ -114,14 +132,11 @@ export default function Filter({ entries, filterEntries }) {
                         </div>
                         <div className="border-t border-gray-100"></div>
                         <div className="py-1">
-                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
-                                Partnered
+                            <a onClick={handlePartnered} href="#" className={cn("block px-4 py-2 text-sm leading-5 hover:bg-gray-100 focus:outline-none", {'text-green-700 font-medium': partnerOnly, 'hover:text-gray-700 text-gray-600': !partnerOnly})} role="menuitem">
+                                Partnered Only
                             </a>
-                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
-                                Comment
-                            </a>
-                            <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
-                                Submitted
+                            <a onClick={handleSubmitted} href="#" className={cn("block px-4 py-2 text-sm leading-5 hover:bg-gray-100 focus:outline-none", {'text-green-700 font-medium': submittedOnly, 'hover:text-gray-700 text-gray-600': !submittedOnly})} role="menuitem">
+                                Submitted Only
                             </a>
                         </div>
                         <div className="border-t border-gray-100"></div>

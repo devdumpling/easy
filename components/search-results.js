@@ -15,6 +15,8 @@ export default function SearchResults({ posts }) {
             readTime={post.readTime}
             draft={post.draft}
             publication={post.publication}
+            partnered={post.partnered}
+            submitted={post.submitted}
           />
         ))}
       </div>
