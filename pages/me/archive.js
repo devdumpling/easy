@@ -3,6 +3,7 @@ import LayoutBanner from '../../components/layout-banner'
 import { getAllPosts, getAllDrafts } from '../../lib/api'
 import Head from 'next/head'
 import YourStories from '../../components/your-stories'
+import SearchResults from '../../components/search-results'
 import Search from '../../components/search'
 import { useState, useCallback } from 'react'
 import cn from 'classnames'
@@ -58,7 +59,7 @@ export default function Archive({ allPosts, allDrafts }) {
                     </div>
                     <hr className="border-accent-2 mb-4" />
                     <div>
-                        {searchResults.length > 0 && <YourStories posts={searchResults} />}
+                        {searchResults.length > 0 && <SearchResults posts={searchResults} />}
                     </div>
                     <div className={cn({
                         'hidden': showDrafts,
