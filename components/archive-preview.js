@@ -33,7 +33,7 @@ export default function ArchivePreview({
           <div className="pr-2">
             Last edited on <DateFormatter dateString={date} />
           </div>} {' · '}
-        <p className="px-2"> {readTime} min read</p>
+        <p className="px-2"> {readTime} read</p>
         {publication && (<p className="pr-2"> {' · '}In {publication}</p>)}
       </div>
       <hr className="border-accent-2" />

@@ -3,18 +3,19 @@ import cn from 'classnames'
 
 export default function Filter({ entries, filterEntries }) {
     const [active, setActive] = useState(false);
-    const [startDate, setStartDate] = useState()
-    const [endDate, setEndDate] = useState()
-    const [length, setLength] = useState()
-    const [publication, setPublication] = useState()
-    const [lengthOptions, setLengthOptions] = useState(['Any', '0-2 min', '2-5 min', '5-8 min', '8+ min'])
-    const [publicationOptions, setPublicationOptions] = useState([...new Set(['Any'].concat(entries.map((post) => post.publication)))])
-    const [partnerOnly, setPartnerOnly] = useState(false)
-    const [submittedOnly, setSubmittedOnly] = useState(false)
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+    const [clear, setClear] = useState(false);
+    const [length, setLength] = useState();
+    const [publication, setPublication] = useState();
+    const [lengthOptions, setLengthOptions] = useState(['Any', '0-2 min', '2-5 min', '5-8 min', '8+ min']);
+    const [publicationOptions, setPublicationOptions] = useState([...new Set(['Any'].concat(entries.map((post) => post.publication)))]);
+    const [partnerOnly, setPartnerOnly] = useState(false);
+    const [submittedOnly, setSubmittedOnly] = useState(false);
 
     useEffect(() => {
         filterChanges();
-    }, [length, publication, partnerOnly, submittedOnly])
+    }, [length, publication, partnerOnly, submittedOnly, clear])
 
     const filterChanges = () => {
         let filtered = entries;
@@ -42,7 +43,25 @@ export default function Filter({ entries, filterEntries }) {
             filtered = filtered.filter(post => post.submitted === "1")
         }
 
+        if (startDate && endDate) {
+            let s = Date.parse(startDate);
+            let e = Date.parse(endDate);
+            filtered = filtered.filter(post => s <= Date.parse(post.date) && Date.parse(post.date) <= e)
+        }
+
         filterEntries(filtered);
+    }
+
+    const handleDateFilterClick = () => {
+        if (startDate && endDate) filterChanges();
+    }
+
+    const onStartInputChange = (e) => {
+        setStartDate(e.target.value);
+    }
+
+    const onEndInputChange = (e) => {
+        setEndDate(e.target.value)
     }
 
     const onLengthChange = (e) => {
@@ -66,22 +85,25 @@ export default function Filter({ entries, filterEntries }) {
         setPublication('Any');
         setPartnerOnly(false);
         setSubmittedOnly(false);
+        setStartDate('');
+        setEndDate('');
+        setClear(!clear);
     }
 
     return (
         <div className={cn("flex justify-end", { "mb-4": active, "mb-0": !active })}>
-            <span className={cn("px-2 mr-2 text-gray-500 opacity-50 border border-gray-500 rounded shadow", {"flex": active && startDate || endDate, "hidden": !active || !startDate && !endDate})}>MM/YYYY</span>
+            <span className={cn("px-2 mr-2 text-gray-500 opacity-50 border border-gray-500 rounded shadow", { "flex": active && startDate || endDate, "hidden": !active || !startDate && !endDate })}>MM-DD-YYYY</span>
             <div className={cn("border-l-2 pl-2 flex flex-wrap text-gray-600", {
                 "opacity-100 border-green-600 transition ease-out duration-150": active,
                 "opacity-0 border-gray-100 transition ease-in duration-300 transform translate-x-16": !active,
-            })}>                
-                <input autoComplete="off" maxLength="7" className="text-center w-24 px-2 text-sm focus:outline-none"
-                    type="text" onChange={((e) => setStartDate(e.target.value))} value={startDate} name="search" placeholder="Start Date" />
-                <input autoComplete="off" maxLength="7" className="text-center w-24 px-2 text-sm focus:outline-none"
-                    type="text" onChange={((e) => setEndDate(e.target.value))} value={endDate} name="search" placeholder="End Date" />
-                <button className={cn("hover:bg-gray-100 text-gray-500 focus:outline-none mr-2 my-0 rounded inline-flex items-center", {"text-gray-700": startDate || endDate})}>
-                    <svg class="fill-current w-4 h-4 m-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M2 6h60L38 32v20l-12 6V32L2 6z" /></svg>                    
-                </button>                
+            })}>
+                <input autoComplete="off" maxLength="10" className="text-center w-24 px-2 text-sm focus:outline-none"
+                    type="text" onChange={onStartInputChange} value={startDate} name="start" placeholder="Start Date" />
+                <input autoComplete="off" maxLength="10" className="text-center w-24 px-2 text-sm focus:outline-none"
+                    type="text" onChange={onEndInputChange} value={endDate} name="end" placeholder="End Date" />
+                <button onClick={handleDateFilterClick} className={cn("hover:bg-gray-100 text-gray-500 focus:outline-none mr-2 my-0 rounded inline-flex items-center", { "text-gray-700": startDate || endDate })}>
+                    <svg className="fill-current w-4 h-4 m-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M2 6h60L38 32v20l-12 6V32L2 6z" /></svg>
+                </button>
             </div>
             <div className="relative inline-block text-left">
                 <div>
