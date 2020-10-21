@@ -4,7 +4,8 @@ More to come here.
 
 ## TODO
 
--Add date filter
 -Add sort
 -Fix nested dropdown in filter text alignment
 -Add markdown files and test
+-Add validation for dates
+-fix sizing at small breakpoint (for some reason tailwind container syntax isn't working)

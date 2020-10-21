@@ -91,7 +91,7 @@ export default function Filter({ entries, filterEntries }) {
     }
 
     return (
-        <div className={cn("flex justify-end", { "mb-4": active, "mb-0": !active })}>
+        <div className={cn("flex justify-end", { "mb-0": active, "mb-0": !active })}>
             <span className={cn("px-2 mr-2 text-gray-500 opacity-50 border border-gray-500 rounded shadow", { "flex": active && startDate || endDate, "hidden": !active || !startDate && !endDate })}>MM-DD-YYYY</span>
             <div className={cn("border-l-2 pl-2 flex flex-wrap text-gray-600", {
                 "opacity-100 border-green-600 transition ease-out duration-150": active,
