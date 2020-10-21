@@ -8,7 +8,7 @@ export default function Filter({ entries, filterEntries }) {
     const [length, setLength] = useState()
     const [publication, setPublication] = useState()
     const [lengthOptions, setLengthOptions] = useState(['Any', '0-2 min', '2-5 min', '5-8 min', '8+ min'])
-    const [publicationOptions, setPublicationOptions] = useState(['Any'].concat(entries.map((post) => post.publication)))
+    const [publicationOptions, setPublicationOptions] = useState([...new Set(['Any'].concat(entries.map((post) => post.publication)))])
     const [partnerOnly, setPartnerOnly] = useState(false)
     const [submittedOnly, setSubmittedOnly] = useState(false)
 

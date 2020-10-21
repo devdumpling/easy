@@ -4,7 +4,6 @@ More to come here.
 
 ## TODO
 
--Fix publication duplicates in drop down
 -Add date filter
 -Add sort
 -Fix nested dropdown in filter text alignment
