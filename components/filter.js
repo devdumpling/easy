@@ -118,7 +118,7 @@ export default function Filter({ entries, filterEntries }) {
                 </div>
 
 
-                <div className={cn("origin-top-right absolute right-0 mt-2 w-64 rounded-md shadow-lg", {
+                <div className={cn("origin-top-right absolute right-0 mt-4 w-64 rounded-md shadow-lg", {
                     "transition ease-in-out duration-150 opacity-100": active,
                     "transition ease-in-out duration-150 opacity-0": !active,
                 })}>
