@@ -4,12 +4,13 @@ import { useState } from 'react'
 
 export default function YourStories({ posts }) {
   const [filteredPosts, setFilteredPosts] = useState(posts);
+  const [sortOption, setSortOption] = useState(() => (post1, post2) => (post1.date > post2.date ? '-1' : '1'))
 
   return (
     <section className="w-full">
       <Filter entries={posts} filterEntries={setFilteredPosts} />
       <div className="grid grid-cols-1 md:col-gap-16 lg:col-gap-32 row-gap-10 md:row-gap-4 mb-8">
-        {filteredPosts.map((post) => (
+        {filteredPosts.sort(sortOption).map((post) => (
           <ArchivePreview
             key={post.slug}
             title={post.title}
