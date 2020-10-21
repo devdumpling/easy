@@ -64,21 +64,22 @@ export default function Filter({ entries, filterEntries }) {
     const clearFilters = (e) => {
         setLength('Any');
         setPublication('Any');
+        setPartnerOnly(false);
+        setSubmittedOnly(false);
     }
 
     return (
         <div className={cn("flex justify-end", { "mb-4": active, "mb-0": !active })}>
             <span className={cn("px-2 mr-2 text-gray-500 opacity-50 border border-gray-500 rounded shadow", {"flex": active && startDate || endDate, "hidden": !active || !startDate && !endDate})}>MM/YYYY</span>
-            <div className={cn("border-l-2 pl-2 flex justify-end text-gray-600", {
+            <div className={cn("border-l-2 pl-2 flex flex-wrap text-gray-600", {
                 "opacity-100 border-green-600 transition ease-out duration-150": active,
                 "opacity-0 border-gray-100 transition ease-in duration-300 transform translate-x-16": !active,
-            })}>
-                
-                <input autoComplete="off" maxLength="7" className="text-left text-sm focus:outline-none"
+            })}>                
+                <input autoComplete="off" maxLength="7" className="text-center w-24 px-2 text-sm focus:outline-none"
                     type="text" onChange={((e) => setStartDate(e.target.value))} value={startDate} name="search" placeholder="Start Date" />
-                <input autoComplete="off" maxLength="7" className="text-left text-sm focus:outline-none"
+                <input autoComplete="off" maxLength="7" className="text-center w-24 px-2 text-sm focus:outline-none"
                     type="text" onChange={((e) => setEndDate(e.target.value))} value={endDate} name="search" placeholder="End Date" />
-                <button className={cn("hover:bg-gray-100 border border-gray-500 text-gray-500 mx-4 rounded inline-flex items-center", {"text-gray-700": startDate || endDate})}>
+                <button className={cn("hover:bg-gray-100 text-gray-500 focus:outline-none mr-2 my-0 rounded inline-flex items-center", {"text-gray-700": startDate || endDate})}>
                     <svg class="fill-current w-4 h-4 m-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M2 6h60L38 32v20l-12 6V32L2 6z" /></svg>                    
                 </button>                
             </div>
@@ -137,16 +138,16 @@ export default function Filter({ entries, filterEntries }) {
                         </div>
                         <div className="border-t border-gray-100"></div>
                         <div className="py-1">
-                            <a onClick={handlePartnered} href="#" className={cn("block px-4 py-2 text-sm leading-5 hover:bg-gray-100 focus:outline-none", { 'text-green-700 font-medium': partnerOnly, 'hover:text-gray-700 text-gray-600': !partnerOnly })} role="menuitem">
+                            <a onClick={handlePartnered} className={cn("block px-4 py-2 text-sm leading-5 hover:bg-gray-100 focus:outline-none", { 'text-green-700 font-medium': partnerOnly, 'hover:text-gray-700 text-gray-600': !partnerOnly })} role="menuitem">
                                 Partnered Only
                             </a>
-                            <a onClick={handleSubmitted} href="#" className={cn("block px-4 py-2 text-sm leading-5 hover:bg-gray-100 focus:outline-none", { 'text-green-700 font-medium': submittedOnly, 'hover:text-gray-700 text-gray-600': !submittedOnly })} role="menuitem">
+                            <a onClick={handleSubmitted} className={cn("block px-4 py-2 text-sm leading-5 hover:bg-gray-100 focus:outline-none", { 'text-green-700 font-medium': submittedOnly, 'hover:text-gray-700 text-gray-600': !submittedOnly })} role="menuitem">
                                 Submitted Only
                             </a>
                         </div>
                         <div className="border-t border-gray-100"></div>
                         <div className="py-1">
-                            <a onClick={clearFilters} href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
+                            <a onClick={clearFilters} className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
                                 Clear
                             </a>
                         </div>
