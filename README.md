@@ -4,7 +4,6 @@ More to come here.
 
 ## TODO
 
--Add sort
 -Fix nested dropdown in filter text alignment
 -Add markdown files and test
 -Add validation for dates

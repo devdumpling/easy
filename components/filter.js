@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import cn from 'classnames'
 
-export default function Filter({ entries, filterEntries }) {
+export default function Filter({ entries, filterEntries, sortEntries }) {
     const [active, setActive] = useState(false);
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
@@ -10,6 +10,29 @@ export default function Filter({ entries, filterEntries }) {
     const [publication, setPublication] = useState();
     const [lengthOptions, setLengthOptions] = useState(['Any', '0-2 min', '2-5 min', '5-8 min', '8+ min']);
     const [publicationOptions, setPublicationOptions] = useState([...new Set(['Any'].concat(entries.map((post) => post.publication)))]);
+    const [sortOptions, setSortOptions] = useState([
+        {
+            key: 0,
+            description: 'Date Desc',
+            fn: () => (post1, post2) => (post1.date > post2.date ? '-1' : '1'),
+        },
+        {
+            key: 1,
+            description: 'Date Asc',
+            fn: () => (post1, post2) => (post1.date > post2.date ? '1' : '-1'),
+        },
+        {
+            key: 2,
+            description: 'Read Time Desc',
+            fn: () => (post1, post2) => (post1.readTime > post2.readTime ? '-1' : '1'),
+        },
+        {
+            key: 3,
+            description: 'Read Time Asc',
+            fn: () => (post1, post2) => (post1.readTime > post2.readTime ? '1' : '-1'),
+        },
+    ])
+    const [sortSelected, setSortSelected] = useState(sortOptions[0]);
     const [partnerOnly, setPartnerOnly] = useState(false);
     const [submittedOnly, setSubmittedOnly] = useState(false);
 
@@ -72,6 +95,11 @@ export default function Filter({ entries, filterEntries }) {
         setPublication(e.target.value)
     }
 
+    const onSortChange = (e) => {
+        setSortSelected(e.target.value);
+        sortEntries(sortOptions.find(option => option.description === e.target.value).fn);
+    }
+
     const handlePartnered = (e) => {
         setPartnerOnly(!partnerOnly)
     }
@@ -87,6 +115,8 @@ export default function Filter({ entries, filterEntries }) {
         setSubmittedOnly(false);
         setStartDate('');
         setEndDate('');
+        setSortSelected(sortOptions[0]);
+        sortEntries(sortOptions[0].fn);
         setClear(!clear);
     }
 
@@ -118,9 +148,9 @@ export default function Filter({ entries, filterEntries }) {
                 </div>
 
 
-                <div className={cn("origin-top-right absolute right-0 mt-4 w-64 rounded-md shadow-lg", {
-                    "transition ease-in-out duration-150 opacity-100": active,
-                    "transition ease-in-out duration-150 opacity-0": !active,
+                <div className={cn("origin-top-right right-0 mt-4 w-64 rounded-md shadow-lg", {
+                    "transition absolute ease-in-out duration-150 opacity-100": active,
+                    "transition hidden ease-in-out duration-150 opacity-0": !active,
                 })}>
                     <div className="rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                         <div className="flex justify-between py-1">
@@ -129,7 +159,7 @@ export default function Filter({ entries, filterEntries }) {
                             </label>
                             <div className="flex justify-between py-1">
                                 <div className="relative">
-                                    <select onChange={onLengthChange} value={length} className="block appearance-none text-sm w-full text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-publication">
+                                    <select onChange={onLengthChange} value={length} className="block appearance-none text-sm w-full text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-length">
                                         {lengthOptions.map((opt) => (
                                             opt && <option key={opt}>{opt}</option>
                                         ))}
@@ -168,6 +198,24 @@ export default function Filter({ entries, filterEntries }) {
                             </a>
                         </div>
                         <div className="border-t border-gray-100"></div>
+                        <div className="flex justify-between py-1">
+                            <label className="block px-4 py-4 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
+                                Sort
+                            </label>
+                            <div className="flex justify-between py-1">
+                                <div className="relative">
+                                    <select onChange={onSortChange} value={sortSelected} className="block appearance-none text-sm w-full text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-sort">
+                                        {sortOptions.map((opt) => (
+                                            opt && <option key={opt.key}>{opt.description}</option>
+                                        ))}
+                                    </select>
+                                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                        <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="border-t border-gray-100"></div>                        
                         <div className="py-1">
                             <a onClick={clearFilters} className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
                                 Clear

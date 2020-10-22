@@ -8,7 +8,7 @@ export default function YourStories({ posts }) {
 
   return (
     <section className="w-full">
-      <Filter entries={posts} filterEntries={setFilteredPosts} />
+      <Filter entries={posts} filterEntries={setFilteredPosts} sortEntries={setSortOption} />
       <div className="grid grid-cols-1 md:col-gap-16 lg:col-gap-32 row-gap-10 md:row-gap-4 mb-8">
         {filteredPosts.sort(sortOption).map((post) => (
           <ArchivePreview
