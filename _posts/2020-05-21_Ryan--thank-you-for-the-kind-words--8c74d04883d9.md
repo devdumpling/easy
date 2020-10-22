@@ -3,7 +3,7 @@ title: 'Ryan, thank you for the kind words!'
 excerpt: ''
 subtitle: ''
 readTime: '1 min'
-publication: 2Easy 2Publication
+publication: ''
 partnered: ''
 submitted: ''
 draft: ''
