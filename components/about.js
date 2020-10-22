@@ -14,7 +14,7 @@ export default function About() {
           </Link>
           <br/>          
           <a
-            href="https://medium.com/"
+            href="https://medium.com/@devon.wells.a"
             className="underline hover:text-success duration-200 transition-colors"
           >
             Read the article behind this app
