@@ -1,4 +1,4 @@
-# Easy: A rendition of an enhanced version of Medium's Your Stories page
+# Easy: An enhanced version of Medium's Your Stories page
 
 Medium.com has a clean, minimal UI. Most of it functions well and is easy to use. However, for whatever reason the "Your Stories" page is a huge pain in the rear. It shows all of a user's drafts and published posts, but with zero filtering or sorting options. This becomes a problem as you build a repetoire of stories, especially because Medium includes comments as stories.
 
