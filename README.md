@@ -6,7 +6,7 @@ To remedy this (and as a learning project in Next.js), I've created Easy.
 
 Easy is a simple clone of Medium with the express goal of demonstrating an enhanced Stories page featuring search, filters, and sorting. It isn't meant to be an all-encompassing, perfect solution, rather a proof of concept.
 
-I wrote an article walking through the reasoning, design, and build. Please check it out at https://medium.com/@devon.wells.a for more info.
+I wrote an article walking through the reasoning, design, and build. I'm currently looking for a publication to house it in, but when it's available I will post it here. You can also find my Medium out at https://medium.com/@devon.wells.a for more info.
 
 ## TODO
 
