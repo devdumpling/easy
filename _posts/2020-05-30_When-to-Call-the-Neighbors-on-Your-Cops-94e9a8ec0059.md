@@ -7,7 +7,7 @@ subtitle: >-
   Rambunctious ̶n̶e̶i̶g̶h̶b̶o̶r̶s̶ cops got you up at night? Considering calling
   the ̶c̶o̶p̶s̶ community for help?
 readTime: '4 min'
-publication: ''
+publication: 'Devon Wells'
 partnered: ''
 submitted: ''
 draft: ''

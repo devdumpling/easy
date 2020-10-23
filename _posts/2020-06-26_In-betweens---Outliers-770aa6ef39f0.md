@@ -3,7 +3,7 @@ title: In-betweens & Outliers
 excerpt: A journal of never quite belonging.
 subtitle: A journal of never quite belonging.
 readTime: '7 min'
-publication: 2Easy 2Publication
+publication: 'An Injustice!'
 partnered: '1'
 submitted: ''
 draft: ''

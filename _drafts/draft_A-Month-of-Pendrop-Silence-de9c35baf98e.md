@@ -5,7 +5,7 @@ subtitle: What happened when I stopped writing for 30 days.
 readTime: '6 min'
 publication: ''
 partnered: ''
-submitted: ''
+submitted: '1'
 draft: '1'
 date: '2020-10-22T16:07:08.251Z'
 slugMedium: ''

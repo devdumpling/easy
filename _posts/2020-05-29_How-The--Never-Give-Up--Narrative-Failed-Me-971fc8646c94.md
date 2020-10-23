@@ -3,7 +3,7 @@ title: How The “Never Give Up” Narrative Failed Me
 excerpt: And how giving up changed my life.
 subtitle: And how giving up changed my life.
 readTime: '7 min'
-publication: 2Easy 2Publication
+publication: 'The Post-Grad Survival Guide'
 partnered: '1'
 submitted: ''
 draft: ''

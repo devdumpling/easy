@@ -3,7 +3,7 @@ title: 'Retro Review: Final Fantasy X'
 excerpt: “Listen to my story…”
 subtitle: “Listen to my story…”
 readTime: '5 min'
-publication: 2Easy 2Publication
+publication: 'SUPERJUMP'
 partnered: '1'
 submitted: ''
 draft: ''

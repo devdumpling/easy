@@ -3,7 +3,7 @@ title: I never asked to be a better writer.
 excerpt: Why does Medium keep trying to make me one?
 subtitle: Why does Medium keep trying to make me one?
 readTime: '2 min'
-publication: 2Easy 2Publication
+publication: 'Devon Wells'
 partnered: '1'
 submitted: ''
 draft: ''

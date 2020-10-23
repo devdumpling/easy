@@ -3,7 +3,7 @@ title: HOW TO WRITE WITHOUT GIVING A FUCK
 excerpt: SUBTITLES ARE FOR EDITORS
 subtitle: SUBTITLES ARE FOR EDITORS
 readTime: '3 min'
-publication: 2Easy 2Publication
+publication: 'MuddyUm'
 partnered: '1'
 submitted: ''
 draft: ''

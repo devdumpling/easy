@@ -3,7 +3,7 @@ title: Florida Man Refuses to Drive with Headlights
 excerpt: Cites violation of “God-given freedom”
 subtitle: Cites violation of “God-given freedom”
 readTime: '2 min'
-publication: 2Easy 2Publication
+publication: 'MuddyUm'
 partnered: '1'
 submitted: ''
 draft: ''

@@ -3,7 +3,7 @@ title: Stop Trying to Monetize Everything
 excerpt: Bring back casual hobbies.
 subtitle: Bring back casual hobbies.
 readTime: '3 min'
-publication: 2Easy 2Publication
+publication: 'The Post-Grad Survival Guide'
 partnered: '1'
 submitted: ''
 draft: ''

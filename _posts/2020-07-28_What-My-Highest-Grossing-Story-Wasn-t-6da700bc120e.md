@@ -3,7 +3,7 @@ title: What My Highest Grossing Story Wasn’t
 excerpt: 'For starters: what I expected.'
 subtitle: 'For starters: what I expected.'
 readTime: '4 min'
-publication: 2Easy 2Publication
+publication: 'Indivisible'
 partnered: '1'
 submitted: ''
 draft: ''

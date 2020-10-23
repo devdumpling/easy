@@ -3,7 +3,7 @@ title: Valve’s Language Filter is a Cheap Bandage for Toxicity
 excerpt: The gaming industry can do better — and so can we
 subtitle: The gaming industry can do better — and so can we
 readTime: '6 min'
-publication: 2Easy 2Publication
+publication: 'Devon Wells'
 partnered: '1'
 submitted: ''
 draft: ''

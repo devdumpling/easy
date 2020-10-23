@@ -3,7 +3,7 @@ title: 'Go Ahead, Run Me Over'
 excerpt: But I’m going to take you down with me.
 subtitle: But I’m going to take you down with me.
 readTime: '2 min'
-publication: 2Easy 2Publication
+publication: 'MuddyUm'
 partnered: '1'
 submitted: ''
 draft: ''

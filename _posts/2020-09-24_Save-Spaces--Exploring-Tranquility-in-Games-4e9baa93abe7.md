@@ -3,7 +3,7 @@ title: 'Save Spaces: Exploring Tranquility in Games'
 excerpt: How games teach us to revel in the calm
 subtitle: How games teach us to revel in the calm
 readTime: '6 min'
-publication: 2Easy 2Publication
+publication: 'SUPERJUMP'
 partnered: '1'
 submitted: ''
 draft: ''

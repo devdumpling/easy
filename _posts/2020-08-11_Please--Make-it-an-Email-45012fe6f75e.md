@@ -3,7 +3,7 @@ title: 'Please, Make it an Email'
 excerpt: No one wants to join your “update” meeting
 subtitle: No one wants to join your “update” meeting
 readTime: '1 min'
-publication: 2Easy 2Publication
+publication: 'MuddyUm'
 partnered: '1'
 submitted: ''
 draft: ''

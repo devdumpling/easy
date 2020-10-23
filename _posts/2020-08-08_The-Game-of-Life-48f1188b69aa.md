@@ -3,7 +3,7 @@ title: The Game of Life
 excerpt: On COVID-19 and The Matrix
 subtitle: On COVID-19 and The Matrix
 readTime: '7 min'
-publication: 2Easy 2Publication
+publication: 'SUPERJUMP'
 partnered: '1'
 submitted: ''
 draft: ''

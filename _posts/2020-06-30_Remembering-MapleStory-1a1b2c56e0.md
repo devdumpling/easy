@@ -3,7 +3,7 @@ title: Remembering MapleStory
 excerpt: Returning to an MMO from 2007
 subtitle: Returning to an MMO from 2007
 readTime: '6 min'
-publication: 2Easy 2Publication
+publication: 'SUPERJUMP'
 partnered: '1'
 submitted: ''
 draft: ''

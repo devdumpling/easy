@@ -3,7 +3,7 @@ title: In-betweens & Outliers
 excerpt: Lessons from never quite belonging
 subtitle: Lessons from never quite belonging
 readTime: '9 min'
-publication: 2Easy 2Publication
+publication: 'Devon Wells'
 partnered: '1'
 submitted: ''
 draft: ''

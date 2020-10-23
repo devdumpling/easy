@@ -7,7 +7,7 @@ subtitle: >-
   Some of Fire Emblem: Three Houses’ key additions interrupt the flow of
   gameplay
 readTime: '5 min'
-publication: 2Easy 2Publication
+publication: 'SUPERJUMP'
 partnered: '1'
 submitted: ''
 draft: ''

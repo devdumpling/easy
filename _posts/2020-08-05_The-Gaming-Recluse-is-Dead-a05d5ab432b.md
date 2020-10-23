@@ -3,7 +3,7 @@ title: The Gaming Recluse is Dead
 excerpt: Retiring a vapid stereotype
 subtitle: Retiring a vapid stereotype
 readTime: '3 min'
-publication: 2Easy 2Publication
+publication: 'SUPERJUMP'
 partnered: '1'
 submitted: ''
 draft: ''

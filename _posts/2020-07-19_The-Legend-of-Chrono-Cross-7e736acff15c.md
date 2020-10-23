@@ -3,7 +3,7 @@ title: The Legend of Chrono Cross
 excerpt: Reflecting on Square Enix’s classic JRPG sequel
 subtitle: Reflecting on Square Enix’s classic JRPG sequel
 readTime: '5 min'
-publication: 2Easy 2Publication
+publication: 'SUPERJUMP'
 partnered: '1'
 submitted: ''
 draft: ''

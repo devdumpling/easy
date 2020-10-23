@@ -3,7 +3,7 @@ title: 'Nostalgia Review: Maplestory'
 excerpt: '2007.'
 subtitle: '2007.'
 readTime: '6 min'
-publication: 2Easy 2Publication
+publication: 'SUPERJUMP'
 partnered: '1'
 submitted: ''
 draft: ''

@@ -3,7 +3,7 @@ title: The Art of War (and Dota)
 excerpt: 'I’m still a beginner after nearly 6,000 hours in Dota 2'
 subtitle: 'I’m still a beginner after nearly 6,000 hours in Dota 2'
 readTime: '19 min'
-publication: 2Easy 2Publication
+publication: 'SUPERJUMP'
 partnered: '1'
 submitted: ''
 draft: ''
